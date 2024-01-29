@@ -1,0 +1,640 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    xmlns:tools="http://schemas.android.com/tools"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent"-->
+<!--    android:background="#0A1624"-->
+<!--    tools:context=".TemperatureActivity">-->
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0A1624"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    tools:context=".MainActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="40dp">
+
+
+        <Button
+            android:id="@+id/btn_blinkarrow_left"
+            android:layout_width="34dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="18dp"
+            android:contentDescription="이전 페이지 이동"
+            android:background="@drawable/btn_arrowblink_left"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btn_blinkarrow_right"
+            android:layout_width="34dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginRight="20dp"
+            android:contentDescription="다음페이지 이동"
+            android:background="@drawable/btn_arrowblink_right"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/title_temp_monitoring"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            android:text="차량 온도 모니터링"
+            android:textColor="@color/main"
+            android:textSize="22dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/temp_top_frame"
+            android:layout_width="0dp"
+            android:layout_height="36dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="76dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/rectangle_corner8_1fffffff"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/dot6_white_border"
+            android:layout_width="6dp"
+            android:layout_height="6dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/rectangle_corner8_border_ffffff"
+            app:layout_constraintStart_toStartOf="@id/temp_top_frame"
+            app:layout_constraintTop_toTopOf="@id/temp_top_frame" />
+
+        <TextView
+            android:id="@+id/txt1_topframe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="8dp"
+            android:text="현재 문제 되는 상황이 없습니다."
+            android:textColor="#FFFFFF"
+            android:textSize="13dp"
+            app:layout_constraintStart_toEndOf="@id/dot6_white_border"
+            app:layout_constraintTop_toTopOf="@id/temp_top_frame" />
+
+        <View
+            android:id="@+id/bg_temp_large"
+            android:layout_width="0dp"
+            android:layout_height="246dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/rectangle_corner8_14ffffff"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/temp_top_frame" />
+
+        <View
+            android:id="@+id/bg_temp_medium"
+            android:layout_width="0dp"
+            android:layout_height="136dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/rectangle_corner8_14ffffff"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/bg_temp_large" />
+
+        <View
+            android:id="@+id/bg_temp_small"
+            android:layout_width="0dp"
+            android:layout_height="82dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/rectangle_corner8_14ffffff"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/bg_temp_medium" />
+
+        <View
+            android:id="@+id/car_temperature"
+            android:layout_width="164dp"
+            android:layout_height="298dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="142dp"
+            android:background="@drawable/car_temperature"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/bg_temp_large" />
+
+        <TextView
+            android:id="@+id/num_temp1"
+            android:layout_width="68dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/roboto_medium"
+            android:gravity="center_horizontal"
+            android:text="35°"
+            android:textColor="#FFFFFF"
+            android:textSize="22dp"
+            app:layout_constraintStart_toStartOf="@id/bg_temp_large"
+            app:layout_constraintTop_toTopOf="@id/bg_temp_large" />
+
+        <View
+            android:id="@+id/temp_bar1"
+            android:layout_width="68dp"
+            android:layout_height="10dp"
+            android:layout_marginLeft="12dp"
+            android:background="@drawable/temp_bar"
+            app:layout_constraintStart_toStartOf="@id/bg_temp_large"
+            app:layout_constraintTop_toBottomOf="@id/num_temp1" />
+
+        <SeekBar
+            android:id="@+id/seekBar1"
+            android:layout_width="64dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="14dp"
+            android:layout_marginTop="-5dp"
+            android:maxHeight="1dp"
+            android:paddingStart="0dp"
+            android:paddingEnd="0dp"
+            android:progress="50"
+            android:progressDrawable="@color/main"
+            android:splitTrack="false"
+            android:thumb="@drawable/thumb_seekbar"
+            app:layout_constraintStart_toStartOf="@id/bg_temp_large"
+            app:layout_constraintTop_toBottomOf="@id/temp_bar1" />
+
+        <TextView
+            android:id="@+id/temp_title1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="-8dp"
+            android:text="터보챠저 온도"
+            android:textColor="#FFFFFF"
+            android:textSize="13dp"
+            app:layout_constraintStart_toStartOf="@id/bg_temp_large"
+            app:layout_constraintTop_toBottomOf="@id/seekBar1" />
+
+        <TextView
+            android:id="@+id/num_temp2"
+            android:layout_width="68dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/roboto_medium"
+            android:gravity="center_horizontal"
+            android:text="23°"
+            android:textColor="#FFFFFF"
+            android:textSize="22dp"
+            app:layout_constraintStart_toStartOf="@id/bg_temp_large"
+            app:layout_constraintTop_toBottomOf="@id/temp_title1" />
+
+        <View
+            android:id="@+id/temp_bar2"
+            android:layout_width="68dp"
+            android:layout_height="10dp"
+            android:layout_marginLeft="12dp"
+            android:background="@drawable/temp_bar"
+            app:layout_constraintStart_toStartOf="@id/bg_temp_large"
+            app:layout_constraintTop_toBottomOf="@id/num_temp2" />
+
+        <SeekBar
+            android:id="@+id/seekBar2"
+            android:layout_width="64dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="14dp"
+            android:layout_marginTop="-5dp"
+            android:maxHeight="1dp"
+            android:paddingStart="0dp"
+            android:paddingEnd="0dp"
+            android:progress="50"
+            android:progressDrawable="@color/main"
+            android:splitTrack="false"
+            android:thumb="@drawable/thumb_seekbar"
+            app:layout_constraintStart_toStartOf="@id/bg_temp_large"
+            app:layout_constraintTop_toBottomOf="@id/temp_bar2" />
+
+        <TextView
+            android:id="@+id/temp_title2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="14dp"
+            android:layout_marginTop="-8dp"
+            android:text="엔진 냉각수"
+            android:textColor="#FFFFFF"
+            android:textSize="13dp"
+            app:layout_constraintStart_toStartOf="@id/bg_temp_large"
+            app:layout_constraintTop_toBottomOf="@id/seekBar2" />
+
+        <TextView
+            android:id="@+id/num_temp3"
+            android:layout_width="68dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/roboto_medium"
+            android:gravity="center_horizontal"
+            android:text="78°"
+            android:textColor="#FFFFFF"
+            android:textSize="22dp"
+            app:layout_constraintStart_toStartOf="@id/bg_temp_large"
+            app:layout_constraintTop_toBottomOf="@id/temp_title2" />
+
+        <View
+            android:id="@+id/temp_bar3"
+            android:layout_width="68dp"
+            android:layout_height="10dp"
+            android:layout_marginLeft="12dp"
+            android:background="@drawable/temp_bar"
+            app:layout_constraintStart_toStartOf="@id/bg_temp_large"
+            app:layout_constraintTop_toBottomOf="@id/num_temp3" />
+
+        <SeekBar
+            android:id="@+id/seekBar3"
+            android:layout_width="64dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="14dp"
+            android:layout_marginTop="-5dp"
+            android:maxHeight="1dp"
+            android:paddingStart="0dp"
+            android:paddingEnd="0dp"
+            android:progress="50"
+            android:progressDrawable="@color/main"
+            android:splitTrack="false"
+            android:thumb="@drawable/thumb_seekbar"
+            app:layout_constraintStart_toStartOf="@id/bg_temp_large"
+            app:layout_constraintTop_toBottomOf="@id/temp_bar3" />
+
+        <TextView
+            android:id="@+id/temp_title3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="-8dp"
+            android:text="매니폴드 온도"
+            android:textColor="#FFFFFF"
+            android:textSize="13dp"
+            app:layout_constraintStart_toStartOf="@id/bg_temp_large"
+            app:layout_constraintTop_toBottomOf="@id/seekBar3" />
+
+        <TextView
+            android:id="@+id/num_temp4"
+            android:layout_width="68dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="8dp"
+            android:fontFamily="@font/roboto_medium"
+            android:gravity="center_horizontal"
+            android:text="125°"
+            android:textColor="#E31C25"
+            android:textSize="22dp"
+            app:layout_constraintEnd_toEndOf="@id/bg_temp_large"
+            app:layout_constraintTop_toTopOf="@id/bg_temp_large" />
+
+        <View
+            android:id="@+id/temp_bar4"
+            android:layout_width="68dp"
+            android:layout_height="10dp"
+            android:layout_marginRight="12dp"
+            android:background="@drawable/temp_bar"
+            app:layout_constraintEnd_toEndOf="@id/bg_temp_large"
+            app:layout_constraintTop_toBottomOf="@id/num_temp4" />
+
+        <SeekBar
+            android:id="@+id/seekBar4"
+            android:layout_width="64dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-5dp"
+            android:layout_marginRight="14dp"
+            android:paddingStart="0dp"
+            android:paddingEnd="0dp"
+            android:maxHeight="1dp"
+            android:progress="50"
+            android:progressDrawable="@color/main"
+            android:splitTrack="false"
+            android:thumb="@drawable/thumb_seekbar"
+            app:layout_constraintEnd_toEndOf="@id/bg_temp_large"
+            app:layout_constraintTop_toBottomOf="@id/temp_bar4" />
+
+        <TextView
+            android:id="@+id/temp_title4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-8dp"
+            android:layout_marginRight="20dp"
+            android:text="엔진 오일"
+            android:textColor="#E31C25"
+            android:textSize="13dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@id/bg_temp_large"
+            app:layout_constraintTop_toBottomOf="@id/seekBar1" />
+
+        <TextView
+            android:id="@+id/num_temp5"
+            android:layout_width="68dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginRight="8dp"
+            android:fontFamily="@font/roboto_medium"
+            android:gravity="center_horizontal"
+            android:text="-28°"
+            android:textColor="#FFFFFF"
+            android:textSize="22dp"
+            app:layout_constraintEnd_toEndOf="@id/bg_temp_large"
+            app:layout_constraintTop_toBottomOf="@id/temp_title4" />
+
+        <View
+            android:id="@+id/temp_bar5"
+            android:layout_width="68dp"
+            android:layout_height="10dp"
+            android:layout_marginRight="12dp"
+            android:background="@drawable/temp_bar"
+            app:layout_constraintEnd_toEndOf="@id/bg_temp_large"
+            app:layout_constraintTop_toBottomOf="@id/num_temp5" />
+
+        <SeekBar
+            android:id="@+id/seekBar5"
+            android:layout_width="64dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-5dp"
+            android:layout_marginRight="14dp"
+            android:paddingStart="0dp"
+            android:paddingEnd="0dp"
+            android:maxHeight="1dp"
+            android:progress="50"
+            android:progressDrawable="@color/main"
+            android:splitTrack="false"
+            android:thumb="@drawable/thumb_seekbar"
+            app:layout_constraintEnd_toEndOf="@id/bg_temp_large"
+            app:layout_constraintTop_toBottomOf="@id/temp_bar5" />
+
+        <TextView
+            android:id="@+id/temp_title5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-8dp"
+            android:layout_marginRight="20dp"
+            android:text="흡기 온도"
+            android:textColor="@color/white"
+            android:textSize="13dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@id/bg_temp_large"
+            app:layout_constraintTop_toBottomOf="@id/seekBar5" />
+
+        <TextView
+            android:id="@+id/num_temp6"
+            android:layout_width="68dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginRight="8dp"
+            android:fontFamily="@font/roboto_medium"
+            android:gravity="center_horizontal"
+            android:text="78°"
+            android:textColor="#5CFFFFFF"
+            android:textSize="22dp"
+            app:layout_constraintEnd_toEndOf="@id/bg_temp_large"
+            app:layout_constraintTop_toBottomOf="@id/temp_title5" />
+
+        <View
+            android:id="@+id/temp_bar6"
+            android:layout_width="68dp"
+            android:layout_height="10dp"
+            android:layout_marginRight="12dp"
+            android:background="@drawable/rectangle_corner8_5cffffff"
+            app:layout_constraintEnd_toEndOf="@id/bg_temp_large"
+            app:layout_constraintTop_toBottomOf="@id/num_temp6" />
+
+        <SeekBar
+            android:id="@+id/seekBar6"
+            android:layout_width="64dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-5dp"
+            android:layout_marginRight="14dp"
+            android:paddingStart="0dp"
+            android:paddingEnd="0dp"
+            android:maxHeight="1dp"
+            android:progress="50"
+            android:progressDrawable="@color/main"
+            android:splitTrack="false"
+            android:thumb="@drawable/thumb_seekbar"
+            app:layout_constraintEnd_toEndOf="@id/bg_temp_large"
+            app:layout_constraintTop_toBottomOf="@id/temp_bar6" />
+
+        <TextView
+            android:id="@+id/temp_title6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-8dp"
+            android:layout_marginRight="20dp"
+            android:text="촉매 온도"
+            android:textColor="#5cffffff"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@id/bg_temp_large"
+            app:layout_constraintTop_toBottomOf="@id/seekBar6" />
+
+        <TextView
+            android:id="@+id/temp_outer_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="36dp"
+            android:text="외부 온도"
+            android:textColor="@color/white"
+            android:textSize="13dp"
+            app:layout_constraintStart_toStartOf="@id/bg_temp_medium"
+            app:layout_constraintTop_toTopOf="@id/bg_temp_medium" />
+
+        <TextView
+            android:id="@+id/temperature_outer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="22dp"
+            android:fontFamily="@font/roboto_regular"
+            android:text="31°"
+            android:textColor="@color/white"
+            android:textSize="36dp"
+            app:layout_constraintStart_toStartOf="@id/bg_temp_medium"
+            app:layout_constraintTop_toBottomOf="@id/temp_outer_title" />
+
+        <TextView
+            android:id="@+id/temp_fuel_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="12dp"
+            android:text="연비 권장 설정"
+            android:textColor="@color/white"
+            android:textSize="13dp"
+            app:layout_constraintEnd_toEndOf="@id/bg_temp_medium"
+            app:layout_constraintTop_toTopOf="@id/bg_temp_medium" />
+
+        <TextView
+            android:id="@+id/temp_summer_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="여름"
+            android:textColor="#F9AD4E"
+            android:textSize="14dp"
+            app:layout_constraintStart_toStartOf="@id/temp_fuel_title"
+            app:layout_constraintTop_toBottomOf="@id/temp_fuel_title" />
+
+        <TextView
+            android:id="@+id/temp_summer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-6dp"
+            android:fontFamily="@font/roboto_regular"
+            android:text="23°~25°"
+            android:textColor="#F9AD4E"
+            android:textSize="20dp"
+            app:layout_constraintStart_toStartOf="@id/temp_summer_title"
+            app:layout_constraintTop_toBottomOf="@id/temp_summer_title" />
+
+        <TextView
+            android:id="@+id/temp_winter_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="겨울"
+            android:textColor="#8DEDF1"
+            android:textSize="14dp"
+            app:layout_constraintStart_toStartOf="@id/temp_summer"
+            app:layout_constraintTop_toBottomOf="@id/temp_summer" />
+
+        <TextView
+            android:id="@+id/temp_winter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-6dp"
+            android:fontFamily="@font/roboto_regular"
+            android:text="20°~22°"
+            android:textColor="#8DEDF1"
+            android:textSize="20dp"
+            app:layout_constraintStart_toStartOf="@id/temp_winter_title"
+            app:layout_constraintTop_toBottomOf="@id/temp_winter_title" />
+
+        <TextView
+            android:id="@+id/num_temp7"
+            android:layout_width="68dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="6dp"
+            android:fontFamily="@font/roboto_medium"
+            android:gravity="center_horizontal"
+            android:text="430°"
+            android:textColor="#FFFFFF"
+            android:textSize="22dp"
+            app:layout_constraintStart_toStartOf="@id/bg_temp_small"
+            app:layout_constraintTop_toTopOf="@id/bg_temp_small" />
+
+        <View
+            android:id="@+id/temp_bar7"
+            android:layout_width="68dp"
+            android:layout_height="10dp"
+            android:layout_marginLeft="12dp"
+            android:background="@drawable/temp_bar"
+            app:layout_constraintStart_toStartOf="@id/bg_temp_small"
+            app:layout_constraintTop_toBottomOf="@id/num_temp7" />
+
+        <SeekBar
+            android:id="@+id/seekBar7"
+            android:layout_width="64dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="14dp"
+            android:layout_marginTop="-5dp"
+            android:maxHeight="1dp"
+            android:paddingStart="0dp"
+            android:paddingEnd="0dp"
+            android:progress="50"
+            android:progressDrawable="@color/main"
+            android:splitTrack="false"
+            android:thumb="@drawable/thumb_seekbar"
+            app:layout_constraintStart_toStartOf="@id/bg_temp_small"
+            app:layout_constraintTop_toBottomOf="@id/temp_bar7" />
+
+        <TextView
+            android:id="@+id/temp_title7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="22dp"
+            android:layout_marginTop="-8dp"
+            android:text="배기 가스"
+            android:textColor="#FFFFFF"
+            android:textSize="13sp"
+            app:layout_constraintStart_toStartOf="@id/bg_temp_small"
+            app:layout_constraintTop_toBottomOf="@id/seekBar7" />
+
+        <TextView
+            android:id="@+id/num_temp8"
+            android:layout_width="68dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_marginRight="8dp"
+            android:fontFamily="@font/roboto_medium"
+            android:gravity="center_horizontal"
+            android:text="532°"
+            android:textColor="#FFFFFF"
+            android:textSize="22dp"
+            app:layout_constraintEnd_toEndOf="@id/bg_temp_small"
+            app:layout_constraintTop_toTopOf="@id/bg_temp_small" />
+
+        <View
+            android:id="@+id/temp_bar8"
+            android:layout_width="68dp"
+            android:layout_height="10dp"
+            android:layout_marginRight="12dp"
+            android:background="@drawable/temp_bar"
+            app:layout_constraintEnd_toEndOf="@id/bg_temp_small"
+            app:layout_constraintTop_toBottomOf="@id/num_temp8" />
+
+        <SeekBar
+            android:id="@+id/seekBar8"
+            android:layout_width="64dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-5dp"
+            android:layout_marginRight="14dp"
+            android:paddingStart="0dp"
+            android:paddingEnd="0dp"
+            android:maxHeight="1dp"
+            android:progress="50"
+            android:progressDrawable="@color/main"
+            android:splitTrack="false"
+            android:thumb="@drawable/thumb_seekbar"
+            app:layout_constraintEnd_toEndOf="@id/bg_temp_small"
+            app:layout_constraintTop_toBottomOf="@id/temp_bar8" />
+
+        <TextView
+            android:id="@+id/temp_title8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-8dp"
+            android:layout_marginRight="12dp"
+            android:text="배기가스 재순환 온도"
+            android:textColor="@color/white"
+            android:textSize="13sp"
+            app:layout_constraintEnd_toEndOf="@id/bg_temp_small"
+            app:layout_constraintTop_toBottomOf="@id/seekBar8" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
+<!--</androidx.constraintlayout.widget.ConstraintLayout>-->
