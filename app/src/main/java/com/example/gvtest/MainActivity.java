@@ -77,6 +77,7 @@ public class MainActivity extends AppCompatActivity {
         //
         //tempgauge.setNameText("냉각수 온도"); //이름 텍스트 변경
         //tempgauge.setValueText("100");
+        //수정확인용
 
         tg3 = (TempGauge) findViewById(R.id.tg3);
         tg3.initTempGauge(0, 100);
