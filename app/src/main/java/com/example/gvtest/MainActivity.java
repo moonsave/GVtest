@@ -75,9 +75,6 @@ public class MainActivity extends AppCompatActivity {
         tempgauge1.addRanges(30,50,TEMP_BLUE);
         tempgauge1.addRanges(50,100,TEMP_ORANGE);
         //
-        //tempgauge.setNameText("냉각수 온도"); //이름 텍스트 변경
-        //tempgauge.setValueText("100");
-        //
 
         tg3 = (TempGauge) findViewById(R.id.tg3);
         tg3.initTempGauge(0, 100);
