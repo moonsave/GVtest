@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //게이지뷰
+
         final GaugeView gaugeView = (GaugeView) findViewById(R.id.gaugeView);
         gaugeView.initGaugeView(0, 1500);  //게이지뷰 최소 최대값 설정
         gaugeView.addRanges(0,400, GAUGE_YELLOW); //해당 범위 게이지 색 설정
